@@ -14,10 +14,54 @@
     <main id="main-content">
       <header class="page-hero"><div class="container narrow"><p class="eyebrow">Behind the build</p><h1>Developer's Perspective</h1><p class="lead">Show how the project evolved through research, design, implementation, testing, and iteration.</p></div></header>
       <article class="section container narrow prose">
-        <section><h2>Problem and requirements</h2><p>Define the technical problem, constraints, stakeholders, and success criteria that guided the project.</p></section>
-        <section><h2>Architecture and tools</h2><p>Describe your technology choices using terms from your coursework. Explain why each choice fit the project's requirements.</p><div class="placeholder" role="img" aria-label="Placeholder for a system architecture diagram"><span>Add an architecture diagram</span></div></section>
-        <section><h2>Development timeline</h2><ol class="timeline"><li><h3>First approach</h3><p>Show an early artifact and explain what you tried, including what did not work.</p></li><li><h3>Iteration</h3><p>Describe the feedback, testing, or discovery that changed your approach.</p></li><li><h3>Final implementation</h3><p>Connect the finished solution to the lessons learned during development.</p></li></ol></section>
-        <section><h2>Challenges and tradeoffs</h2><p>Discuss an important technical challenge, the alternatives you considered, and the reasoning behind your decision.</p></section>
+        <section>
+          <h2>Problem and requirements</h2
+          ><p>For (name) the biggest technical challenge was thoroughly implementing Apples Screen Time Framwork in Swift.
+            This became a bigger challenge because I did not know Swift before starting this project. The constraints I faced included designing a robust and user 
+            friendly interface while making sure the screen time features did not fail. 
+            </p>
+          </section>
+        <section>
+          <h2>Architecture and tools</h2>
+          <ul>
+            <li>Swift/SwiftUI for building frontend</li>
+            <li>Supabase for PostgreSQL database and Auth</li>
+            <li>•	Apple Screen Time Framework. This includes apples Family controls, 
+              Managed Settings, and Device Activity APIs. 
+              These work together to provide the functionality required for the screen time app 
+              while preserving customer privacy</li>
+              <li>GitHub for source control and CI/CD pipeline</li>
+              <li>Figma for mockups of apps and logos</li>
+          </ul>
+          <img src="assets/archDiagram.png" alt="Architecture image" width="850px"/>
+          </div>
+        </section>
+        <section>
+          <h2>Development timeline</h2>
+          <ol class="timeline"><li>
+            <h3>First approach</h3>
+            <p>At first a React Native mobile app for a cross platform deployment was the obvious answer. 
+              I could deploy on both devices ?????simultaneously and have transferrable skills from web development. </p>
+          </li>
+          <li>
+            <h3>Iteration</h3>
+            <p> Due to Apple's Privacy restrictions you have to implement their framwork/Api in Swift,
+               this meant to make it work in React Native you need native modules but it also means performance is impacted. </p>
+          </li>
+          <li>
+            <h3>Final implementation</h3>
+            <p>I decided to value user experience and performance 
+               over convenience so I went with a SwiftUI/Swift implementation of the app.
+              (Name) is now built with Apples Native Language which takes a 
+              privacy centered approach while offering superior performance in Iphone devices. </p>
+          </li>
+        </ol>
+      </section>
+      <!---- <section>
+          <h2>Challenges and tradeoffs</h2>
+          <p>Discuss an important technical challenge, the alternatives you considered, and the reasoning behind your decision.</p>
+        </section>
+      -->
       </article>
     </main>
     <footer class="site-footer"><div class="container footer-content"><p>© <span data-current-year></span> Albert Castillo</p></div></footer>
