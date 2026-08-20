@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Themed and annotated resources used throughout the capstone project.">
+    <meta name="description" content="An MLA-formatted annotated bibliography organized by the themes and tools that shaped ScreenTimeAppIOS.">
     <title>Annotated Bibliography | Capstone Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" defer></script>
@@ -12,64 +12,110 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header"><nav class="navbar container" aria-label="Main navigation"><a class="site-name" href="index.html">Capstone Portfolio</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button><ul class="nav-links" id="primary-navigation"><li><a href="index.html">Capstone</a></li><li><a href="users-perspective.html">User's Perspective</a></li><li><a href="developers-perspective.html">Developer's Perspective</a></li><li><a href="my-perspective.html">My Perspective</a></li><li><a href="annotated-bibliography.html" aria-current="page">Annotated Bibliography</a></li></ul></nav></header>
     <main id="main-content">
-      <header class="page-hero"><div class="container narrow"><p class="eyebrow">Learning by doing</p><h1>Annotated Bibliography</h1></div></header>
-      <div class="section container narrow bibliography">
+      <header class="page-hero">
+        <div class="container narrow">
+          <p class="eyebrow">Learning by doing</p>
+          <h1>Annotated Bibliography</h1>
+          <p class="lead"></p>
+        </div>
+      </header>
+      <div class="section container bibliography">
         <section class="theme">
           <div>
             <p class="eyebrow">Theme 01</p>
-            <h2>Research and discovery</h2>
-            <p class="annotation">Explain how this group of resources informed your understanding of the problem, users, or project requirements.</p>
+            <h2>Apple Screen Time Frameworks</h2>
+            <p class="annotation">I used Apple’s official documentation to understand the capabilities, 
+              permissions, and privacy limits, and implementation of FamilyControls, ManagedSettings, and DeviceActivity. 
+              I paired that reference with practical implementation guides so I could connect the frameworks,
+              persist app selections, 
+              schedule focus sessions, and apply or remove shields. 
+              This combination of official documentation and working examples guided the app’s defining feature 
+              and confirmed that a native Swift implementation was the right direction.
+            </p>
           </div>
           <ul class="source-list">
-            <li>
-              <p>
-                <strong>Author Last Name, First Name.</strong> “Title of Article.” <em>Publication</em>, Year.</p>
-                <a href="#">Source link</a>
-              </li>
-              <li><p><strong>Organization Name.</strong> <em>Title of Resource</em>. Year.</p><a href="#">Source link</a></li></ul></section>
+            <li><p class="citation"><strong>Apple.</strong> “Screen Time Technology Frameworks.” <em>Apple Developer Documentation</em>, <a href="https://developer.apple.com/documentation/screentimeapidocumentation">developer.apple.com/documentation/screentimeapidocumentation</a>. Accessed 19 Aug. 2026.</p></li>
+            <li><p class="citation"><strong>Brussee, Julius.</strong> “A Developer’s Guide to Apple’s Screen Time APIs (FamilyControls, ManagedSettings, DeviceActivity).” <em>Medium</em>, 23 Apr. 2025, <a href="https://medium.com/@juliusbrussee/a-developers-guide-to-apple-s-screen-time-apis-familycontrols-managedsettings-deviceactivity-e660147367d7">medium.com/@juliusbrussee/a-developers-guide-to-apple-s-screen-time-apis-familycontrols-managedsettings-deviceactivity-e660147367d7</a>.</p></li>
+            <li><p class="citation"><strong>Ustunel, Ezgi.</strong> “Screen Time API.” <em>iOS Nest</em>, <em>Medium</em>, 13 Oct. 2024, <a href="https://medium.com/ios-nest/screen-time-api-d1110751d2ce">medium.com/ios-nest/screen-time-api-d1110751d2ce</a>.</p></li>
+          </ul>
+        </section>
+
         <section class="theme">
           <div>
             <p class="eyebrow">Theme 02</p>
-            <h2>Design and implementation</h2>
-            <p class="annotation">Explain how these resources supported a technical decision, design pattern, or implementation strategy.</p>
+            <h2>Architecture and React Native Exploration</h2>
+            <p class="annotation">I began the project by learning React Native and Expo and by studying
+               how the frontend, authentication, database, and other parts of application fit together, since it was my first mobile app.
+                The broader architecture resources helped me compare technology choices and identify Supabase for authentication and data storage,
+                but also determine what is standard. When I investigated bridging Apple’s native Screen Time frameworks through an Expo module,
+                 the added complexity helped me decide to pivot from the cross-platform prototype to a fully native Swift and SwiftUI app.
+            </p>
           </div>
           <ul class="source-list">
-              <li>
-                 <p><strong>Apple</strong> “Screen Time Technology Frameworks.” <em>Apple Developer Documentation</em></p>
-                <a href="https://developer.apple.com/documentation/screentimeapidocumentation">Source link</a>
-              </li>
-              <li>
-                 <p><strong>Author or Organization.</strong> “Add Swift Documentation” <em>Website</em>, Year.</p>
-                <a href="#">Source link</a>
-              </li>
-              <li>
-                 <p><strong>Author or Organization.</strong> “Add API blogs” <em>Website</em>, Year.</p>
-                <a href="#">Source link</a>
-              </li>
-              <li>
-                 <p><strong>Author or Organization.</strong> “Add youtube videos” <em>Website</em>, Year.</p>
-                <a href="#">Source link</a>
-              </li>
-              <li>
-                <p><strong>Author Last Name, First Name.</strong> <em>Book or Resource Title</em>. Publisher, Year.</p>
-              </li>
-            </ul>
-          </section>
-       <!--- <section class="theme">
+            <li><p class="citation"><strong>Day, Warren.</strong> “The Complete App Development Tech Stack.” <em>YouTube</em>, 30 Mar. 2026, <a href="https://www.youtube.com/watch?v=zinyWfgNQgU">www.youtube.com/watch?v=zinyWfgNQgU</a>.</p></li>
+            <li><p class="citation"><strong>Expo.</strong> “How to Create a Native Module with the Expo Modules API.” <em>YouTube</em>, 6 Sep. 2024, <a href="https://www.youtube.com/watch?v=CdaQSlyGik8&amp;t=885s">www.youtube.com/watch?v=CdaQSlyGik8&amp;t=885s</a>.</p></li>
+            <li><p class="citation"><strong>JavaScript Mastery.</strong> “SaaS App Full Course 2026 | Launch Your SaaS in Under 7 Days with Next JS, Supabase &amp; Payments.” <em>YouTube</em>, 23 May 2025, <a href="https://www.youtube.com/watch?v=XUkNR-JfHwo&amp;t=13719s">www.youtube.com/watch?v=XUkNR-JfHwo&amp;t=13719s</a>.</p></li>
+            <li><p class="citation"><strong>Net Ninja.</strong> “Complete React Native Tutorial #1 - Introduction &amp; Setup (Expo).” <em>YouTube</em>, 9 Apr. 2025, <a href="https://www.youtube.com/watch?v=J2j1yk-34OY">www.youtube.com/watch?v=J2j1yk-34OY</a>.</p></li>
+          </ul>
+        </section>
+
+        <section class="theme">
           <div>
             <p class="eyebrow">Theme 03</p>
-            <h2>Testing and evaluation</h2>
-            <p class="annotation">Explain how this theme helped you evaluate your work, interpret feedback, or improve the final project.</p>
+            <h2>Backend, Realtime, and Security</h2>
+            <p class="annotation">I first studied WebSockets and Redis while building a small realtime leaderboard project to learn how to implement that feature in my project.
+               After reviewing the project requirements, I realized the leaderboard did not need instant updates, so Redis was not used in the final app. 
+               However, the experiment gave me a foundation for understanding live data. I later applied that learning through Supabase Realtime for focus request updates,
+                while the remaining sources guided the app’s authentication, PostgreSQL data, Row Level Security.</p>
           </div>
           <ul class="source-list">
-            <li>
-              <p>
-                <strong>Author or Organization.</strong> “Title of Resource.” <em>Website</em>, Year.</p>
-                <a href="#">Source link</a>
-              </li>
-            </ul>
-          </section>
-        -->
+            <li><p class="citation"><strong>AppStuff.</strong> “Supabase Auth with SwiftUI — Done Right (Production Setup Guide).” <em>YouTube</em>, 12 Feb. 2026, <a href="https://www.youtube.com/watch?v=K3OknZU0Lcs">www.youtube.com/watch?v=K3OknZU0Lcs</a>.</p></li>
+            <li><p class="citation"><strong>freeCodeCamp.org.</strong> “A Beginner’s Guide to WebSockets.” <em>YouTube</em>, 13 Sep. 2018, <a href="https://www.youtube.com/watch?v=8ARodQ4Wlf4">www.youtube.com/watch?v=8ARodQ4Wlf4</a>.</p></li>
+            <li><p class="citation"><strong>freeCodeCamp.org.</strong> “Redis Course - In-Memory Database Tutorial.” <em>YouTube</em>, 25 Nov. 2020, <a href="https://www.youtube.com/watch?v=XCsS_NVAa1g">www.youtube.com/watch?v=XCsS_NVAa1g</a>.</p></li>
+            <li><p class="citation"><strong>G.</strong> “Row Level Security with @Supabase — Course Part 10 (2025).” <em>YouTube</em>, 17 Mar. 2025, <a href="https://www.youtube.com/watch?v=Vx1q8Nfp0BE">www.youtube.com/watch?v=Vx1q8Nfp0BE</a>.</p></li>
+            <li><p class="citation"><strong>Supabase.</strong> “Getting Started with Supabase Database.” <em>YouTube</em>, 10 Mar. 2026, <a href="https://www.youtube.com/watch?v=C9kJwxhdw9A">www.youtube.com/watch?v=C9kJwxhdw9A</a>.</p></li>
+            <li><p class="citation"><strong>Supabase.</strong> “Getting Started with Supabase Edge Functions.” <em>YouTube</em>, 13 May 2026, <a href="https://www.youtube.com/watch?v=EQ5h3NSWMbk">www.youtube.com/watch?v=EQ5h3NSWMbk</a>.</p></li>
+            <li><p class="citation"><strong>Supabase.</strong> “Invokes a Supabase Edge Function.” <em>Supabase Docs</em>, <a href="https://supabase.com/docs/reference/swift/functions-invoke">supabase.com/docs/reference/swift/functions-invoke</a>. Accessed 19 Aug. 2026.</p></li>
+            <li><p class="citation"><strong>Supabase.</strong> “Use Supabase with iOS and SwiftUI.” <em>Supabase Docs</em>, <a href="https://supabase.com/docs/guides/getting-started/quickstarts/ios-swiftui">supabase.com/docs/guides/getting-started/quickstarts/ios-swiftui</a>. Accessed 19 Aug. 2026.</p></li>
+          </ul>
+        </section>
+
+        <section class="theme">
+          <div>
+            <p class="eyebrow">Theme 04</p>
+            <h2>Problem Research and User Needs</h2>
+            <p class="annotation">I used these studies to understand the screen time problem across the app’s main audiences of students, teens,and working adults.
+               The research connected high screen use and frequent interruptions with sleep, routines, well-being, family conflict, and perceived productivity. 
+               It helped me frame my app as an accountability and balance tool that protects focus sessions.
+              </p>
+          </div>
+          <ul class="source-list">
+            <li><p class="citation"><strong>Amuthan, Shwetha, et al.</strong> “Screen Time and Its Determinants among Adolescents in Chennai: A Cross-Sectional Study.” <em>Journal of Family Medicine and Primary Care</em>, vol. 15, no. 3, 2026, pp. 1160–64. <a href="https://doi.org/10.4103/jfmpc.jfmpc_442_25">doi.org/10.4103/jfmpc.jfmpc_442_25</a>.</p></li>
+            <li><p class="citation"><strong>Anderson, Monica, Michelle Faverio, and Eugenie Park.</strong> “How Teens and Parents Approach Screen Time.” <em>Pew Research Center</em>, 11 Mar. 2024, <a href="https://www.pewresearch.org/internet/2024/03/11/how-teens-and-parents-approach-screen-time/">www.pewresearch.org/internet/2024/03/11/how-teens-and-parents-approach-screen-time/</a>.</p></li>
+            <li><p class="citation"><strong>Bondanini, Giorgia, et al.</strong> “The Dual Impact of Digital Connectivity: Balancing Productivity and Well-Being in the Modern Workplace.” <em>International Journal of Environmental Research and Public Health</em>, vol. 22, no. 6, 2025, article 845. <a href="https://doi.org/10.3390/ijerph22060845">doi.org/10.3390/ijerph22060845</a>.</p></li>
+            <li><p class="citation"><strong>Duke, Éilish, and Christian Montag.</strong> “Smartphone Addiction, Daily Interruptions and Self-Reported Productivity.” <em>Addictive Behaviors Reports</em>, vol. 6, 2017, pp. 90–95. <a href="https://doi.org/10.1016/j.abrep.2017.07.002">doi.org/10.1016/j.abrep.2017.07.002</a>.</p></li>
+          </ul>
+        </section>
+
+        <section class="theme">
+          <div>
+            <p class="eyebrow">Theme 05</p>
+            <h2>Swift and SwiftUI Learning</h2>
+            <p class="annotation">After I pivoted from React Native, I used these tutorials to build a new foundation in Swift and SwiftUI.
+               The broader courses taught me the project workflow, layouts, controls, navigation, and common application patterns,
+                while the focused WeSplit lessons helped me translate familiar React ideas into SwiftUI state and bindings. 
+                I applied those concepts while rebuilding the authentication, home, friends, profile, and leaderboard UI's.</p>
+          </div>
+          <ul class="source-list">
+            <li><p class="citation"><strong>Allen, Sean.</strong> “SwiftUI Fundamentals | FULL COURSE | Beginner Friendly.” <em>YouTube</em>, 6 Sep. 2023, <a href="https://www.youtube.com/watch?v=b1oC7sLIgpI">www.youtube.com/watch?v=b1oC7sLIgpI</a>.</p></li>
+            <li><p class="citation"><strong>freeCodeCamp.org.</strong> “SwiftUI Course for Beginners – Create an iOS App from Scratch.” <em>YouTube</em>, 20 Oct. 2025, <a href="https://www.youtube.com/watch?v=-VC3hIEL7eQ&amp;t=1219s">www.youtube.com/watch?v=-VC3hIEL7eQ&amp;t=1219s</a>.</p></li>
+            <li><p class="citation"><strong>Hudson, Paul.</strong> “Binding State to User Interface Controls – WeSplit SwiftUI Tutorial 5/11.” <em>YouTube</em>, 7 Oct. 2023, <a href="https://www.youtube.com/watch?v=wMIHdsFYGC0">www.youtube.com/watch?v=wMIHdsFYGC0</a>.</p></li>
+            <li><p class="citation"><strong>Hudson, Paul.</strong> “Creating a Form – WeSplit SwiftUI Tutorial 2/11.” <em>YouTube</em>, 7 Oct. 2023, <a href="https://www.youtube.com/watch?v=4Ui09XbYf1A">www.youtube.com/watch?v=4Ui09XbYf1A</a>.</p></li>
+            <li><p class="citation"><strong>Hudson, Paul.</strong> “Modifying Program State – WeSplit SwiftUI Tutorial 4/11.” <em>YouTube</em>, 7 Oct. 2023, <a href="https://www.youtube.com/watch?v=X0Rw3uc3kj8">www.youtube.com/watch?v=X0Rw3uc3kj8</a>.</p></li>
+            <li><p class="citation"><strong>Hudson, Paul.</strong> “Understanding the Basic Structure of a SwiftUI App – WeSplit SwiftUI Tutorial 1/11.” <em>YouTube</em>, 7 Oct. 2023, <a href="https://www.youtube.com/watch?v=sZSlTDlo0Ag">www.youtube.com/watch?v=sZSlTDlo0Ag</a>.</p></li>
+            <li><p class="citation"><strong>Swift.org.</strong> “Build an iOS App with SwiftUI.” <em>Swift.org</em>, <a href="https://www.swift.org/getting-started/swiftui/">www.swift.org/getting-started/swiftui/</a>. Accessed 19 Aug. 2026.</p></li>
+          </ul>
+        </section>
       </div>
     </main>
     <footer class="site-footer"><div class="container footer-content"><p>© <span data-current-year></span> Albert Castillo</p><p>Built for GitHub Pages.</p></div></footer>

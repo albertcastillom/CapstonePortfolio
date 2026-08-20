@@ -12,56 +12,230 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header"><nav class="navbar container" aria-label="Main navigation"><a class="site-name" href="index.html">Capstone Portfolio</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button><ul class="nav-links" id="primary-navigation"><li><a href="index.html">Capstone</a></li><li><a href="users-perspective.html">User's Perspective</a></li><li><a href="developers-perspective.html" aria-current="page">Developer's Perspective</a></li><li><a href="my-perspective.html">My Perspective</a></li><li><a href="annotated-bibliography.html">Annotated Bibliography</a></li></ul></nav></header>
     <main id="main-content">
-      <header class="page-hero"><div class="container narrow"><p class="eyebrow">Behind the build</p><h1>Developer's Perspective</h1></div></header>
-      <article class="section container narrow prose">
-        <section>
-          <h2>Problem and requirements</h2
-          ><p>For (name) the biggest technical challenge was thoroughly implementing Apples Screen Time Framwork in Swift.
-            This became a bigger challenge because I did not know Swift before starting this project. The constraints I faced included designing a robust and user 
-            friendly interface while making sure the screen time features did not fail. 
+      <header class="page-hero developer-hero">
+        <div class="container">
+          <p class="eyebrow">Behind the build</p>
+          <h1>Developer's Perspective</h1>
+          <p class="lead">This page traces how the project evolved from a cross-platform React Native idea into a native Swift and SwiftUI application built around Apple’s Screen Time frameworks.</p>
+        </div>
+      </header>
+
+      <article class="section container developer-page prose">
+        <section id="requirements" class="developer-section">
+          <div class="section-intro">
+            <p class="eyebrow">01 · Defining the work</p>
+            <h2>Problem, Requirements, and Constraints</h2>
+            <p>The project began as an accountability-based screen time app.
+              Its core experience required a user to create a focus session, select distracting apps,
+              and involve a trusted friend who could approve the session or end it early.
             </p>
-          </section>
-        <section>
-          <h2>Architecture and tools</h2>
-          <ul>
-            <li>Swift/SwiftUI for building frontend</li>
-            <li>Supabase for PostgreSQL database and Auth</li>
-            <li>•	Apple Screen Time Framework. This includes apples Family controls, 
-              Managed Settings, and Device Activity APIs. 
-              These work together to provide the functionality required for the screen time app 
-              while preserving customer privacy</li>
-              <li>GitHub for source control and CI/CD pipeline</li>
-              <li>Figma for mockups of apps and logos</li>
-          </ul>
-          <img src="assets/archDiagram.png" alt="Architecture image" width="850px"/>
+            <p>
+              People often struggle to focus on important tasks because of the distractions of their devices.
+              The app’s goal is to help users stay focused by providing a way to block distracting apps during a focus session.
+              There are plenty of apps that can block other apps, but they often lack accountability and social support.
+              This app addresses that gap by allowing users to involve a friend in their focus sessions this provides
+              the accountability of a friend who can monitor and approve the session.
+            </p>
+            <p>The original scope included registration and login, a dashboard, friends, profiles, focus sessions,
+              notifications, a leaderboard, securing user data, and reliable app blocking.
+              I initially hoped to support both iOS and Android, but Apple’s privacy model and native Screen Time frameworks
+              became the project’s most important technical constraint.</p>
           </div>
         </section>
-        <section>
-          <h2>Development timeline</h2>
-          <ol class="timeline"><li>
-            <h3>First approach</h3>
-            <p>At first a React Native mobile app for a cross platform deployment was the obvious answer. 
-              I could deploy on both devices ?????simultaneously and have transferrable skills from web development. </p>
-          </li>
-          <li>
-            <h3>Iteration</h3>
-            <p> Due to Apple's Privacy restrictions you have to implement their framwork/Api in Swift,
-               this meant to make it work in React Native you need native modules but it also means performance is impacted. </p>
-          </li>
-          <li>
-            <h3>Final implementation</h3>
-            <p>I decided to value user experience and performance 
-               over convenience so I went with a SwiftUI/Swift implementation of the app.
-              (Name) is now built with Apples Native Language which takes a 
-              privacy centered approach while offering superior performance in Iphone devices. </p>
-          </li>
-        </ol>
-      </section>
-      <!---- <section>
-          <h2>Challenges and tradeoffs</h2>
-          <p>Discuss an important technical challenge, the alternatives you considered, and the reasoning behind your decision.</p>
+
+        <section id="react-native" class="developer-section">
+          <div class="section-intro">
+            <p class="eyebrow">02 · First approach</p>
+            <h2>Starting with React Native</h2>
+            <p>React Native was the natural first choice because it offered cross-platform deployment and built on my existing React and web-development experience. This phase let me explore mobile project structure, Expo, interface development, and the backend services the app would need.</p>
+          </div>
+          <ol class="timeline compact-timeline">
+            <li>
+              <h3>Transfer existing skills</h3>
+              <p>
+                Coming from web development, I was familiar with React concepts such as components, props, and state.
+                However, I had to learn about mobile-specific considerations such as touch interactions, platform-specific view syntax, dark mode, and user preferences.
+                Expo provided a streamlined development environment, but I also needed to understand its limitations and how to handle navigation between screens.
+              </p>
+            </li>
+            <li>
+              <h3>Build the first prototype</h3>
+              <p>
+                I started by creating the UI in React Native, focusing on bare-bones versions of every page so the application would have a complete skeleton.
+                After that, I could begin creating the database and connecting the backend to the front end.
+              </p>
+            </li>
+            <li>
+              <h3>Discover the platform constraint</h3>
+              <p>
+                After reading Apple’s Screen Time documentation, I realized that the frameworks required for app blocking and focus sessions were available only through native Swift APIs.
+                This meant I would have to create a custom native bridge to access them from React Native, adding complexity and potential reliability issues.
+                My main concern was that performance could degrade and the user experience could suffer if the bridge was not implemented correctly.
+                Native code would also prevent me from using Expo Go. Instead, I would have to build the project with Xcode and run it on a simulator or physical device, slowing development and testing.
+              </p>
+            </li>
+          </ol>
+          <div class="figure-gallery ui-comparison">
+            <figure class="artifact-figure">
+              <img src="assets/ReactUIIMG.PNG" alt="Dashboard interface from the original React Native prototype">
+              <figcaption>Figure 1: Original dashboard interface built in React Native.</figcaption>
+            </figure>
+            <figure id="figure-2" class="artifact-figure">
+              <img src="assets/SwiftUIDashboard.png" alt="Revised dashboard interface rebuilt in SwiftUI">
+              <figcaption>Figure 2: Revised dashboard interface rebuilt in SwiftUI.</figcaption>
+            </figure>
+            <figure class="artifact-figure wide-figure">
+              <img src="assets/earlyArch.png" alt="Original cross-platform architecture connecting a React Native and Expo app to a Screen Time API, Node.js and Express backend, and PostgreSQL database">
+              <figcaption>Figure 3: Original cross-platform architecture planned for the React Native version.</figcaption>
+            </figure>
+          </div>
+          <aside class="draft-note">
+            <strong>Figures 1–3: From prototype to pivot</strong>
+            <p>By about week four, after researching the technical requirements and beginning the interface, I realized I would need to rebuild the app natively in SwiftUI. Figures 1 and 2 compare the original React Native dashboard with its SwiftUI replacement. Although this meant starting the interface again, the React Native version gave me a strong visual plan to follow. Figure 3 shows the original cross-platform architecture, which was similar to the final design but did not account for the native extensions and shared storage required by Apple’s Screen Time frameworks.</p>
+          </aside>
         </section>
-      -->
+
+        <section id="architecture" class="developer-section">
+          <div class="section-intro">
+            <p class="eyebrow">03 · Final system</p>
+            <h2>Architecture and Tools</h2>
+            <p>The final system combines a SwiftUI interface, Apple’s Screen Time frameworks, a DeviceActivity monitor extension, shared local storage, and a Supabase backend.</p>
+          </div>
+          <ul class="tech-list">
+            <li><strong>Swift and SwiftUI:</strong> native application structure and interface</li>
+            <li><strong>FamilyControls, ManagedSettings, and DeviceActivity:</strong> authorization, selection, scheduling, and shielding</li>
+            <li><strong>Supabase:</strong> PostgreSQL data, authentication, Row Level Security, and Realtime events</li>
+            <li><strong>GitHub:</strong> source control and development history</li>
+            <li><strong>Figma:</strong> interface and visual-design exploration</li>
+            <li><strong>VS Code:</strong> project IDE</li>
+          </ul>
+          <figure class="artifact-figure">
+            <img src="assets/archDiagram2.png" alt="Component diagram showing SwiftUI views connected to Apple Screen Time services, a DeviceActivity monitor, shared local storage, and a Supabase PostgreSQL backend">
+            <figcaption>Figure 4: Final ScreenTimeAppIOS component architecture.</figcaption>
+          </figure>
+          <aside class="draft-note">
+            <strong>Figure 4: Final architecture</strong>
+            <p>The application uses SwiftUI views as the user-facing layer, providing the dashboard, profile, friends, leaderboard, and signup/login interfaces.
+              These views interact with the Screen Time frameworks to request authorization, select applications, apply restrictions, and manage focus-session blocks.
+              A DeviceActivity monitor extension operates separately from the main application to monitor device activity and trigger shields.
+              Because the monitor and main app run as separate targets, I used shared app-group storage to exchange data between them.
+              Finally, the SwiftUI app communicates with a PostgreSQL database hosted through Supabase, which provides user accounts, authentication, screen-time records, leaderboard information, and Realtime updates.</p>
+          </aside>
+        </section>
+
+        <section id="implementation" class="developer-section">
+          <div class="section-intro">
+            <p class="eyebrow">04 · Learning by doing</p>
+            <h2>Major Implementation Areas</h2>
+            <p class="section-summary">The final application came together through three connected areas: rebuilding the interface in SwiftUI,
+              implementing Apple’s Screen Time frameworks, and creating a secure shared backend with Supabase.
+            </p>
+          </div>
+          <div class="implementation-grid">
+            <article class="implementation-card">
+              <div class="implementation-copy">
+                <p class="artifact-label">Front end</p>
+                <h3>SwiftUI and Interface Evolution</h3>
+                <p>I was able to recreate the React Native interface in SwiftUI relatively quickly. SwiftUI felt intuitive, and it handled some design behavior out of the box. This allowed me to create a working prototype that I could refine after making more progress on the app’s core features.</p>
+                <p class="prompt-copy"><strong>Current focus:</strong> The hardest part of learning SwiftUI was connecting views to their view models. I had to learn how property wrappers such as <code>@StateObject</code> and <code>@ObservedObject</code> manage state and data flow between views.</p>
+              </div>
+              <aside class="implementation-reference" aria-label="Related front-end artifact">
+                <p class="artifact-label">Related artifact</p>
+                <h4>SwiftUI Dashboard</h4>
+                <p><a href="#figure-2">Figure 2</a> shows how I recreated the original React Native dashboard as a native SwiftUI interface.</p>
+              </aside>
+            </article>
+            <article class="implementation-card">
+              <div class="implementation-copy">
+                <p class="artifact-label">Core feature</p>
+                <h3>Screen Time Authorization and App Blocking</h3>
+                <p class="prompt-copy"><strong>Narrative:</strong>
+                  Apple’s Screen Time frameworks are the core of the app’s focus-session experience.
+                  They provide the permissions, selection, scheduling, and shielding capabilities that allow users to block chosen apps during a focus session.
+                  The Family Controls framework handles authorization and provides the FamilyActivityPicker shown in Figure 5.
+                  The ManagedSettings framework allows the app to apply restrictions and shields, while DeviceActivity monitors sessions and triggers those shields at the right time.
+                  At first, I had difficulty understanding how to request authorization and present the FamilyActivityPicker.
+                  After reading the documentation, experimenting with the code, and finding a helpful blog post, I was able to implement it and adjust it to my needs.
+                  The next challenge was reliably saving the selections and sharing them with the monitor extension, which required shared app-group storage.
+                  Finally, I had to schedule focus sessions, apply the shields, and clear the restrictions when each session ended.
+                  I placed this logic in a separate class to make it easier to test and debug.
+                </p>
+              </div>
+              <figure id="figure-5" class="artifact-figure implementation-artifact">
+                <img src="assets/FamilyPickerScreenshot.png" alt="Apple FamilyActivityPicker showing Screen Time app categories selected for blocking">
+                <figcaption>Figure 5: FamilyActivityPicker used to select the apps and categories blocked during a focus session.</figcaption>
+              </figure>
+            </article>
+            <article class="implementation-card">
+              <div class="implementation-copy">
+                <p class="artifact-label">Back end</p>
+                <h3>Supabase, Security, and Realtime</h3>
+                <p class="prompt-copy"><strong>Narrative:</strong>
+                  Supabase provides the backend services for the app, including user authentication, database storage, and Realtime updates.
+                  I used Supabase authentication to manage user accounts and login sessions, and I created the PostgreSQL schema shown in Figure 6 to store user profiles, friendships, and focus requests.
+                  I implemented Row Level Security policies to ensure that users could access only their own data and that friends could see only the information they were authorized to view.
+                  I also used Supabase’s Realtime feature to receive focus-request status changes as they happened.
+                  This allowed the app to update the interface immediately when a friend approved or denied a request and to initiate the app block after approval.
+                </p>
+              </div>
+              <figure id="figure-6" class="artifact-figure implementation-artifact implementation-artifact-wide">
+                <img src="assets/DatabaseSchema.png" alt="Supabase database schema connecting profiles to friendships and focus requests">
+                <figcaption>Figure 6: Supabase schema connecting user profiles, friendships, and focus requests.</figcaption>
+              </figure>
+            </article>
+          </div>
+        </section>
+
+        <section id="testing" class="developer-section">
+          <div class="section-intro">
+            <p class="eyebrow">05 · Reliability</p>
+            <h2>Testing, Challenges, and Applied Learning</h2>
+            <p>
+              As of Quarter 1 my testing and debugging process is still in progress.
+              I have been testing the app on a simulator and on a physical device, and I have been using the Xcode debugger to identify and fix issues.
+              I have gotten feedback from stakeholders and peers, and I have been using that feedback to improve the app’s functionality and user experience.
+              The feedback has been limited because for Quarter 1 the app is not yet fully functional. The focus session feature has just recently been implemented.
+            </p>
+          </div>
+          <!--
+          <div class="artifact-grid two-up">
+            <article class="artifact-card artifact-placeholder">
+              <p class="artifact-label">Artifact to add</p>
+              <h3>Test Evidence</h3>
+              <p>Add a test plan, test matrix, device result, permission test, Supabase security check, or documented bug.</p>
+            </article>
+            <article class="artifact-card artifact-placeholder">
+              <p class="artifact-label">Artifact to add</p>
+              <h3>Iteration or Feedback</h3>
+              <p>Add code-review feedback, stakeholder feedback, a status-report excerpt, or a before-and-after implementation.</p>
+            </article>
+          </div>
+          <aside class="draft-note">
+            <strong>Turn evidence into a story</strong>
+            <p>Name the expected behavior, what actually happened, how you investigated it, what changed, and how you knew the change worked. End by stating what the experience taught you as a developer.</p>
+          </aside>
+          --->
+        </section>
+
+        <section id="next-steps" class="developer-section">
+          <div class="section-intro">
+            <p class="eyebrow">06 · Conclusion</p>
+            <h2>Next Steps</h2>
+            <p>
+              At the end of Quarter 1, my app has a functioning authorization flow and the ability to send a focus-session request. When a friend accepts the request, the app automatically blocks the user’s selected apps. It also supports a local focus session that does not require an accountability partner.
+            </p>
+            <h3>Planned next steps</h3>
+            <ul class="next-steps-list">
+              <li>Implement the leaderboard.</li>
+              <li>Polish the interface and existing features.</li>
+              <li>Add a Pomodoro timer.</li>
+              <li>Attach to-do lists to focus requests.</li>
+              <li>Add notifications.</li>
+              <li>Design a logo and choose a final app name.</li>
+              <li>Prepare the app for App Store submission.</li>
+            </ul>
+          </div>
+        </section>
       </article>
     </main>
     <footer class="site-footer"><div class="container footer-content"><p>© <span data-current-year></span> Albert Castillo</p></div></footer>
